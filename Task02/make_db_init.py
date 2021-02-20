@@ -53,7 +53,7 @@ def splite_year(arr):
 ''' 1 - movies.csv
     movies. Поля id (primary key), title, year, genres.
 '''
-with open("movies.csv") as m:
+with open("movies.csv", encoding="utf-8") as m:
     movies = csv.reader(m, delimiter = ',')
     count = 0
     movies_data = []
@@ -166,57 +166,3 @@ with open('db_init.sql', 'w', encoding="utf-8") as sqlfile:
     #print('Ok')
 sqlfile.close() 
 
-'''
-
-        ЗАПОЛНЕНИЕ ТАБЛИЦ SQLite
-
-
-
-print('.open movies_rating')
-
-#-----------------------             1             ----------------------------
-print('DROP TABLE IF EXISTS movies;')
-print('CREATE TABLE movies(id INTEGER PRIMARY KEY, title VARCHAR(30), year VARCHAR(10), genres VARCHAR(50));')
-print('INSERT INTO movies(id, title, year, genres) \nVALUES ')
-
-for i in range(10):#len(movies_data)-1
-    s = "({}, '{}', '{}', '{}'),".format(movies_data[i][0], movies_data[i][1], movies_data[i][2], movies_data[i][3])
-    print(s)
-    
-print("({}, '{}', '{}', '{}');".format(movies_data[len(movies_data)-1][0], movies_data[len(movies_data)-1][1], movies_data[len(movies_data)-1][2], movies_data[len(movies_data)-1][3]))
-
-
-#-----------------------             2             ----------------------------
-print('DROP TABLE IF EXISTS ratings;')
-print('CREATE TABLE ratings(id INTEGER PRIMARY KEY AUTOINCREMENT,user_id INTEGER, movie_id INTEGER, rating INTEGER, timestamp VARCHAR);')
-print('INSERT INTO ratings(user_id, movie_id, rating, timestamp) \nVALUES ')
-for i in range(10):#len(ratings_data)-1
-    s = "({}, {}, {}, '{}'),".format(ratings_data[i][0], ratings_data[i][1], ratings_data[i][2], ratings_data[i][3])
-    print(s)
-print("({}, {}, {}, '{}');".format(ratings_data[len(ratings_data)-1][0], ratings_data[len(ratings_data)-1][1], ratings_data[len(ratings_data)-1][2], ratings_data[len(ratings_data)-1][3]))
-
-
-#-----------------------             3             ----------------------------
-print('DROP TABLE IF EXISTS tags;')
-print('CREATE TABLE tags(id INTEGER PRIMARY KEY AUTOINCREMENT,user_id INTEGER, movie_id INTEGER, tag VARCHAR(20), timestamp VARCHAR(30));')
-print('INSERT INTO tags(user_id, movie_id, tag, timestamp) \nVALUES ')
-for i in range(10):#len(tags_data)-1
-    s = "({}, {}, '{}', '{}'),".format(tags_data[i][0], tags_data[i][1], tags_data[i][2], tags_data[i][3])
-    print(s)
-print("({}, {}, '{}', '{}');".format(tags_data[len(tags_data)-1][0], tags_data[len(tags_data)-1][1], tags_data[len(tags_data)-1][2], tags_data[len(tags_data)-1][3]))
-
-#-----------------------             4             ----------------------------
-print('DROP TABLE IF EXISTS users;')
-print('CREATE TABLE users(id INTEGER PRIMARY KEY AUTOINCREMENT, name VARCHAR(30), email VARCHAR, register_date VARCHAR, occupation VARCHAR);')
-print('\nINSERT INTO users(name, email, gender, register_date, occupation) VALUES ')
-for i in range(10):
-    s = "({}, '{}', '{}', '{}', '{}', '{}'),".format(users_data[i][0], users_data[i][1], users_data[i][2], users_data[i][3], users_data[i][4], users_data[i][5])
-    print(s)
-print("({}, '{}', '{}', '{}', '{}', '{}');".format(users_data[len(users_data) - 1][0], users_data[len(users_data) - 1][1], users_data[len(users_data) - 1][2], users_data[len(users_data) - 1][3], users_data[len(users_data) - 1][4], users_data[len(users_data) - 1][5]))
-
-
-with open('db_init.sql', 'w') as sqlfile:
-    sqlfile.write('DROP TABLE IF EXISTS tags;')
-    print('Ok')
-sqlfile.close()  
-'''  
