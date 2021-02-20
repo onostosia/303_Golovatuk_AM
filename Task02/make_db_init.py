@@ -38,9 +38,9 @@ def splite_year(arr):
             s=s[::-1]
             
             if len(s) > 4:
-                print(s)
+               # print(s)
                 s = s[:4]
-                print(s)
+               # print(s)
             try:
                 arr[i].insert(2,int(s)) 
             except Exception:
@@ -163,7 +163,7 @@ def SQLscript(f):
 
 with open('db_init.sql', 'w') as sqlfile:
     SQLscript(sqlfile)
-    print('Ok')
+    #print('Ok')
 sqlfile.close() 
 
 '''
