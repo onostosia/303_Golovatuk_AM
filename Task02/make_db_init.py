@@ -161,7 +161,7 @@ def SQLscript(f):
 
 
 
-with open('db_init.sql', 'w') as sqlfile:
+with open('db_init.sql', 'w', encoding="utf-8") as sqlfile:
     SQLscript(sqlfile)
     #print('Ok')
 sqlfile.close() 
