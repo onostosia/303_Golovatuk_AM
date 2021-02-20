@@ -1,4 +1,5 @@
 import csv
+# -*- coding: utf-8 -*-
 def delite_apostr(inf):
     t = list(inf)
     for j in range(len(inf)):
@@ -53,7 +54,7 @@ def splite_year(arr):
 ''' 1 - movies.csv
     movies. Поля id (primary key), title, year, genres.
 '''
-with open("movies.csv", encoding="utf-8") as m:
+with open("movies.csv") as m:
     movies = csv.reader(m, delimiter = ',')
     count = 0
     movies_data = []
