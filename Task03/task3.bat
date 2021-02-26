@@ -5,7 +5,7 @@ sqlite3 movies_rating.db < db_init.sql
 
 echo 1.Составить список фильмов, имеющих хотя бы одну оценку. Список фильмов отсортировать по году выпуска и по названиям. В списке оставить первые 10 фильмов.
 echo --------------------------------------------------
-sqlite3 movies_rating.db -box -echo "SELECT movies.year, movies.title, ratings.rating FROM movies, ratings WHERE (movies.id = ratings.movie_id and movies.year <> 0) ORDER BY movies.year, movies.title LIMIT 10;"
+sqlite3 movies_rating.db -box -echo "SELECT DISTINCT year, title FROM movies INNER JOIN ratings ON movies.id = ratings.movie_id WHERE movies.year <> 0 ORDER BY movies.year, movies.title LIMIT 10;"
 echo " "
 
 echo 2.Вывести список всех пользователей, фамилии которых начинаются на букву 'A'. Полученный список отсортировать по дате регистрации. В списке оставить первых 5 пользователей.
