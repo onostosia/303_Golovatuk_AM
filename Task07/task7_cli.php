@@ -37,9 +37,9 @@ foreach($res as $res_string)
 
 echo "\n".$gb1.str_repeat($r2, 10).$gb3."\n";
 
-$find_group = "";
+$group_number = "";
 
-while($find_group!="escape"){
+while($group_number!="escape"){
     echo "\nEnter group's number: ";
     $group_number = "";
     fscanf(STDIN, "%s", $group_number);
