@@ -1,0 +1,12 @@
+{
+    "name": "q/q",
+    "authors": [
+        {
+            "name": "Anastasia",
+            "email": "toosadkek@gmail.com"
+        }
+    ],
+    "require": {
+        "gabordemooij/redbean": "^5.7"
+    }
+}
